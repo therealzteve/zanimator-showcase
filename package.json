@@ -2,11 +2,12 @@
   "name": "angular-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"watchhtml\" \"lite-server\" ",
+    "start": "npm run processHtml && tsc && concurrently \"tsc -w\" \"npm run watchhtml\" \"lite-server\" ",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "watchhtml": "onchange \"app/**/*.html\" -- copyfiles -u 1 app/**/*.html .tmp",
+    "processHtml": "copyfiles -u 1 app/**/*.html .tmp",
+    "watchhtml": "onchange \"app/**/*.html\" -- npm run processHtml",
     "preinstall": "npm install ../zAnimator"
   },
   "licenses": [
@@ -27,19 +28,21 @@
     "@angular/upgrade": "~2.1.1",
     "angular-in-memory-web-api": "~0.1.13",
     "core-js": "^2.4.1",
+    "createjs-easeljs": "^0.8.2",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.39",
-    "zone.js": "^0.6.25",
-    "zAnimator": "file:../zAnimator"
+    "zAnimator": "file:../zAnimator",
+    "zone.js": "^0.6.25"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
     "concurrently": "^3.0.0",
+    "copyfiles": "^1.0.0",
+    "fs": "0.0.1-security",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.3",
-    "copyfiles" : "^1.0.0",
-    "onchange" : "^3.0.2"
+    "onchange": "^3.0.2",
+    "typescript": "^2.0.3"
   }
 }

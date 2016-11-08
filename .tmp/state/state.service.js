@@ -9,12 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
 var StateService = (function () {
-    function StateService() {
+    function StateService(http) {
+        this.http = http;
+        this.examples = [];
+        this.examplesUrl = "./.tmp/test.json";
     }
+    StateService.prototype.init = function (zAnimator) {
+        var _this = this;
+        this.loadExamples().then(function (data) {
+            for (var _i = 0, _a = data.examples; _i < _a.length; _i++) {
+                var entry = _a[_i];
+                System.import(entry).then(function (loadedExample) {
+                    _this.examples.push(loadedExample.create(zAnimator));
+                    _this.selectExample(_this.examples[0]);
+                });
+            }
+        });
+    };
+    StateService.prototype.selectExample = function (example) {
+        this.selectedExample = example;
+    };
+    StateService.prototype.loadExamples = function () {
+        return this.http.get(this.examplesUrl)
+            .toPromise()
+            .then(function (response) { return response.json(); });
+    };
+    StateService.prototype.getExamples = function () {
+        return this.examples;
+    };
     StateService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], StateService);
     return StateService;
 }());

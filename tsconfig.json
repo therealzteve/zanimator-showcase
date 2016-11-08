@@ -1,5 +1,4 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -11,5 +10,11 @@
     "noImplicitAny": false,
     "outDir": ".tmp",
     "rootDir": "app"
-  }
+  },
+  "include" : [
+      "app/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules/**/*"
+    ]
 }

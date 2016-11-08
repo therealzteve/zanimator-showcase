@@ -9,15 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var state_service_1 = require('./state/state.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(stateService) {
+        this.stateService = stateService;
     }
+    AppComponent.prototype.ngAfterViewInit = function () {
+        this.zAnimator = zAnimator.create("myCanvas");
+        this.stateService.init(this.zAnimator);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>My First Angular App</h1>'
+            template: '<h1>My First Angular App</h1><canvas id="myCanvas"></canvas><my-runner></my-runner>'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [state_service_1.StateService])
     ], AppComponent);
     return AppComponent;
 }());

@@ -10,15 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
+/* Services */
+var state_service_1 = require('./state/state.service');
+/* Components */
 var app_component_1 = require('./app.component');
+var tree_view_component_1 = require('./tree-view/tree-view.component');
+var runner_component_1 = require('./runner/runner.component');
+var dynamic_component_1 = require('./runner/controls/dynamic/dynamic.component');
+var coordinates_component_1 = require('./runner/controls/coordinates/coordinates.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
+            declarations: [app_component_1.AppComponent, tree_view_component_1.TreeViewComponent, runner_component_1.RunnerComponent, dynamic_component_1.DynamicComponent, coordinates_component_1.CoordinatesComponent],
+            bootstrap: [app_component_1.AppComponent],
+            providers: [state_service_1.StateService],
+            entryComponents: [coordinates_component_1.CoordinatesComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
