@@ -1,21 +1,24 @@
-import {Component, Compiler, ViewContainerRef, ViewChild, Input, ComponentRef, ComponentFactory, ComponentFactoryResolver, Type} from '@angular/core';
+import {Component, Compiler, ViewContainerRef, ViewChild, Input, ComponentRef, ComponentFactory, ComponentFactoryResolver, Type, Output, EventEmitter} from '@angular/core';
 
-import { CoordinatesComponent } from '../coordinates/coordinates.component';
+import { ControlComponentsService } from './control-components.service';
 
 // Helper component to add dynamic components
 @Component({
   selector: 'dynamic-control-wrapper',
-  template: `<div #target></div>`
+  template: `<div #target></div>`,
+  providers: [ControlComponentsService]
 })
 export class DynamicComponent {
   @ViewChild('target', {read: ViewContainerRef}) target: ViewContainerRef;
   @Input() type: Type<Component>;
-  @Input() control;
+  @Input() mycontrol;
+
+  @Output() onChanged = new EventEmitter<any>();
 
   cmpRef: ComponentRef<Component>;
   private isViewInitialized:boolean = false;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private compiler: Compiler) {}
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private compiler: Compiler, private controlComponentsService: ControlComponentsService) {}
 
   updateComponent() {
     if(!this.isViewInitialized) {
@@ -26,17 +29,18 @@ export class DynamicComponent {
       // created component before creating the new one
       this.cmpRef.destroy();
     }
-    console.log(this.type);
-    let factory = this.componentFactoryResolver.resolveComponentFactory(CoordinatesComponent);
+    let factory = this.componentFactoryResolver.resolveComponentFactory(this.controlComponentsService.get(this.type));
     this.cmpRef = this.target.createComponent(factory);
     // to access the created instance use
-    (<any>this.cmpRef.instance).control = this.control;
+    (<any>this.cmpRef.instance).mycontrol = this.mycontrol;
+
+    (<any>this.cmpRef.instance).onChanged.subscribe( () => this.publishOnChanged());
     // this.compRef.instance.someOutput.subscribe(val => doSomething());
   }
 
-  ngOnChanges() {
+/*  ngOnChanges() {
     this.updateComponent();
-  }
+  } */
 
   ngAfterViewInit() {
     this.isViewInitialized = true;
@@ -48,4 +52,9 @@ export class DynamicComponent {
       this.cmpRef.destroy();
     }
   }
+
+  publishOnChanged(){
+    this.onChanged.emit();
+  }
+
 }

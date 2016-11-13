@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
+import { FormsModule }   from '@angular/forms';
 
 /* Services */
 import { StateService } from './state/state.service';
@@ -13,7 +14,7 @@ import { DynamicComponent } from './runner/controls/dynamic/dynamic.component';
 import { CoordinatesComponent } from './runner/controls/coordinates/coordinates.component';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule ],
+  imports:      [ BrowserModule, HttpModule, FormsModule ],
   declarations: [ AppComponent, TreeViewComponent, RunnerComponent, DynamicComponent, CoordinatesComponent ],
   bootstrap:    [ AppComponent ],
   providers:    [ StateService ],

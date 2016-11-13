@@ -3,8 +3,8 @@
   <input type="button" value="Run" (click)="runExample()">
   <ul *ngIf="stateService.selectedExample" >
     <li *ngFor="let control of stateService.selectedExample.controls">
-      <dynamic-control-wrapper [type]="control.type"></dynamic-control-wrapper>
       {{control.name}}
+      <dynamic-control-wrapper (onChanged)="onChanged()" [mycontrol]="control" [type]="control.type"></dynamic-control-wrapper>
     </li>
   </ul>
 </div>

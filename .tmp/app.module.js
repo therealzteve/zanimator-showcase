@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
+var forms_1 = require('@angular/forms');
 /* Services */
 var state_service_1 = require('./state/state.service');
 /* Components */
@@ -24,7 +25,7 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, tree_view_component_1.TreeViewComponent, runner_component_1.RunnerComponent, dynamic_component_1.DynamicComponent, coordinates_component_1.CoordinatesComponent],
             bootstrap: [app_component_1.AppComponent],
             providers: [state_service_1.StateService],
