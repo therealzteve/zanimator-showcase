@@ -1,0 +1,5 @@
+<div *ngIf="mycontrol">
+  <input type="text" (ngModelChange)="sendChange()" [(ngModel)]="mycontrol.ref.x" placeholder="x" />
+  <input type="text" (ngModelChange)="sendChange()" [(ngModel)]="mycontrol.ref.y" placeholder="y" />
+  <input type="button" (click)="pickCoordinates()">
+</div>
