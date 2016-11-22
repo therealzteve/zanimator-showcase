@@ -2,7 +2,8 @@
   "name": "angular-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run processHtml && tsc && concurrently \"tsc -w\" \"npm run watchhtml\" \"lite-server\" ",
+    "start": "npm run buildExamples && npm run processHtml && tsc && concurrently \"tsc -w\" \"npm run watchhtml\" \"lite-server\" ",
+    "buildExamples": "node build-examples.js",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
