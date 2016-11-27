@@ -20,28 +20,36 @@ export class StateService {
   init(zAnimator){
     this.loadExamples().then((data) => {
       for(var entry of data.examples){
-        var path = entry.example;
-        var onLoaded = (p) => {
+        var onLoaded = (entry) => {
             return (loadedExample) => {
               if(loadedExample.create){
-                var example = loadedExample.create(zAnimator);
-                example.folder = entry.path;
-                this.examples.push(example);
-                this.selectExample(this.examples[0]);
-                this.onNewExample.next(example);
+                try {
+                  var example = loadedExample.create(zAnimator);
+                  example.folder = entry.path;
+                  this.examples.push(example);
+                  this.selectExample(this.examples[0]);
+                  this.onNewExample.next(example);
+                } catch (e) {
+                  console.warn(entry.example + " caused an error in the create method: ");
+                  console.warn(e);
+                  console.warn(e.stack);
+                };
               }else{
-                console.warn("Example has no create method, skipping example. Path: " + p);
+                console.warn("Example has no create method, skipping example. Path: " + entry.example);
               };
           };
         }
 
-        System.import(path).then(onLoaded(path));
+        System.import(entry.example).then(onLoaded(entry));
 
       }
     });
   }
 
   selectExample(example){
+    if(this.selectedExample){
+      this.selectedExample.stop();
+    }
     this.selectedExample = example;
   }
 

@@ -1,0 +1,23 @@
+html, body {
+  font-family: sans-serif;
+}
+
+#myCanvas{
+  border: 1px dashed #AAA;
+  margin: 3px;
+}
+
+.showcase-box-inner {
+  border: 1px solid #DDD;
+  border-radius: 3px;
+}
+
+
+.showcase-box{
+}
+
+
+.list-group-example:hover{
+  background-color: #DDD;
+  cursor: pointer;
+}

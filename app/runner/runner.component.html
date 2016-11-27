@@ -1,5 +1,6 @@
 <h2>Runner</h2>
 <div>
+  <h3>{{stateService?.selectedExample?.name}}</h3>
   <input type="button" value="Run" (click)="runExample()">
   <ul *ngIf="stateService.selectedExample" >
     <li *ngFor="let control of stateService.selectedExample.controls">

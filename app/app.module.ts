@@ -9,13 +9,14 @@ import { StateService } from './state/state.service';
 /* Components */
 import { AppComponent } from './app.component';
 import { TreeViewComponent } from './tree-view/tree-view.component';
+import { FolderComponent } from './tree-view/folder/folder.component';
 import { RunnerComponent } from './runner/runner.component';
 import { DynamicComponent } from './runner/controls/dynamic/dynamic.component';
 import { CoordinatesComponent } from './runner/controls/coordinates/coordinates.component';
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule, FormsModule ],
-  declarations: [ AppComponent, TreeViewComponent, RunnerComponent, DynamicComponent, CoordinatesComponent ],
+  declarations: [ AppComponent, TreeViewComponent, FolderComponent, RunnerComponent, DynamicComponent, CoordinatesComponent ],
   bootstrap:    [ AppComponent ],
   providers:    [ StateService ],
   entryComponents: [CoordinatesComponent]

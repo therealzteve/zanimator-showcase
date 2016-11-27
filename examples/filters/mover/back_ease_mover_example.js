@@ -3,6 +3,7 @@ exports.create = function(zAnimator){
   var mover;
 
   var example = {
+    name: "Back ease mover example",
     controls: [
       { name: "position",
         type: "coordinates",

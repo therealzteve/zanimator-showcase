@@ -1,15 +1,13 @@
 /*global exampleRunner: true*/
-
 'use strict';
+exports.create = function(zAnimator){
 
-window.addEventListener('load', function(){
-  var myAnimator = exampleRunner.getAnimator();
   var squares = [];
   for(var i = 0; i < 10; i++){
-    var square = myAnimator.factory.square(myAnimator.geometry.shapes.square(10), '#F00');
+    var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(10), '#F00');
     squares.push(square);
   }
-  var centerGroup = myAnimator.filters.group.centerGroup(null, {'width': 50});
+  var centerGroup = zAnimator.filters.group.centerGroup(null, {'width': 50});
 
   var objectCount = 0;
   var increase = true;
@@ -36,16 +34,18 @@ window.addEventListener('load', function(){
       }
     }
   };
-  exampleRunner.addExample({
-    path: ['filters', 'group'],
+
+  var example = {
     name: 'Center group Example 2',
-    start: function(){
-      myAnimator.mainContainer.addChild(centerGroup.view);
-      myAnimator.loop.addAnimation(loopHandler);
+    run: function(){
+      zAnimator.mainContainer.addChild(centerGroup.view);
+      zAnimator.loop.addAnimation(loopHandler);
     },
     stop: function (){
-      myAnimator.loop.removeAnimation(loopHandler);
-      myAnimator.mainContainer.removeChild(centerGroup.view);
+      zAnimator.loop.removeAnimation(loopHandler);
+      zAnimator.mainContainer.removeChild(centerGroup.view);
     }
-  });
-});
+  }
+
+  return example;
+}
