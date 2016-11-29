@@ -2,6 +2,7 @@
 <div>
   <h3>{{stateService?.selectedExample?.name}}</h3>
   <input type="button" value="Run" (click)="runExample()">
+  <input type="button" value="Stop" (click)="stopExample()">
   <ul *ngIf="stateService.selectedExample" >
     <li *ngFor="let control of stateService.selectedExample.controls">
       {{control.name}}

@@ -10,10 +10,11 @@ export class TreeViewComponent implements OnInit {
 
   public treeView = { subFolders: [], examples: [] };
 
+  public searchword;
+
   constructor(private stateService: StateService){
 
     this.stateService.onNewExample.subscribe((example) => {
-      console.log(example);
       var destFolder = this.treeView;
 
       for(var path of (<any>example).folder){
@@ -22,7 +23,8 @@ export class TreeViewComponent implements OnInit {
           folder = {
             name: path,
             subFolders: [],
-            examples: []
+            examples: [],
+            empty: false
           };
           destFolder.subFolders.push(folder);
         }
@@ -35,6 +37,31 @@ export class TreeViewComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public handleSearch($event, folder){
+    var allHidden = true;
+
+    // Check examples
+    for(var entry of folder.examples){
+      if(entry.name.toLowerCase().indexOf($event.toLowerCase()) !== -1){
+        entry.visible = true;
+        allHidden = false;
+      }else{
+        entry.visible = false;
+      }
+    }
+
+    // Check subfolders
+    for(var subFolder of folder.subFolders){
+      this.handleSearch($event, subFolder);
+      if(!subFolder.empty){
+        allHidden = false;
+      }
+    }
+
+    folder.empty = allHidden;
+
   }
 
   private findFolder(folderToSearch, name){

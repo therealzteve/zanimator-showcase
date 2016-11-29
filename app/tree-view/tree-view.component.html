@@ -1,1 +1,2 @@
-<my-tree-folder [folder]="treeView" ></my-tree-folder>
+<input type="text" placeholder="Search..." (ngModelChange)="handleSearch($event, treeView)" [ngModel]="searchword" >
+<my-tree-folder [folder]="treeView" [searchword]="searchword" ></my-tree-folder>

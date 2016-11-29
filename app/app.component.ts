@@ -10,9 +10,19 @@ declare var zAnimator: any;
 })
 export class AppComponent {
   private zAnimator;
+  private white = true;
 
   constructor(private stateService: StateService){
 
+  }
+
+  public switchBW(){
+    if(this.white){
+      document.getElementById("myCanvas").style.backgroundColor = "#000";
+    }else{
+      document.getElementById("myCanvas").style.backgroundColor = "#FFF";
+    }
+    this.white = !this.white;
   }
 
   ngAfterViewInit(){

@@ -1,9 +1,9 @@
 {{folder.name}}
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let entry of folder.subFolders">
-    <my-tree-folder [folder]="entry" ></my-tree-folder>
+  <li class="list-group-item" *ngFor="let entry of getVisibleFolders()">
+    <my-tree-folder  [searchword]="searchword" [folder]="entry" ></my-tree-folder>
   </li>
-  <li class="list-group-item list-group-example" (click)="stateService.selectExample(entry)" *ngFor="let entry of folder.examples">
+  <li class="list-group-item list-group-example" (click)="stateService.selectExample(entry)" *ngFor="let entry of getVisibleExamples()" >
     {{entry.name}}
   </li>
 </ul>

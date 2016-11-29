@@ -19,8 +19,11 @@ export class RunnerComponent {
     this.stateService.selectedExample.run()
   }
 
+  public stopExample(){
+    this.stateService.selectedExample.stop();
+  }
+
   public onChanged(){
-    console.log("change!");
     this.runExample();
   }
 }

@@ -26,6 +26,7 @@ export class StateService {
                 try {
                   var example = loadedExample.create(zAnimator);
                   example.folder = entry.path;
+                  example.visible = true;
                   this.examples.push(example);
                   this.selectExample(this.examples[0]);
                   this.onNewExample.next(example);
