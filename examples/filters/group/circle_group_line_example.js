@@ -3,7 +3,7 @@ exports.create = function(zAnimator){
   var squares = [];
 
   for(var j = 0; j < 4; j++){
-    var line = zAnimator.factory.line(0, -400, 10, '#F00');
+    var line = zAnimator.factory.line(zAnimator.geometry.paths.line({x: 0, y: 0}, {x:0, y: 100}), 100, '#F00');
     var rotator = zAnimator.filters.rotator.linearRotator(line, 180);
     squares.push(rotator);
     rotator.start();
