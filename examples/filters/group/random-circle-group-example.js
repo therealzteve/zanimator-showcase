@@ -1,5 +1,7 @@
 'use strict';
 exports.create = function(zAnimator){
+
+  var startPoint = { 'x': 0, 'y': 0 };
   var squares = [];
 
   for(var j = 0; j < 200; j++){
@@ -16,10 +18,19 @@ exports.create = function(zAnimator){
 
   var example = {
     name: 'Random Circle group Example',
+    controls: [
+      {'name': 'Start point',
+       'type': 'coordinates',
+       'ref': startPoint
+     }
+    ],
     run: function(){
       for(var f of squares){
         f.start();
       }
+      circleGroup.view.x = startPoint.x;
+      circleGroup.view.y = startPoint.y;
+      
       zAnimator.mainContainer.addChild(circleGroup.view);
     },
     stop: function (){

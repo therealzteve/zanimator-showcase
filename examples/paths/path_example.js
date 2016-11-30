@@ -1,5 +1,6 @@
 'use strict';
 exports.create = function(zAnimator){
+  var startPoint = { 'x': 0, 'y': 0 };
 
   var circleShape = zAnimator.geometry.shapes.circle(50);
   var circleShape2 = zAnimator.geometry.shapes.circle(50);
@@ -14,9 +15,15 @@ exports.create = function(zAnimator){
 
   var example = {
     name: 'path draw example',
+    controls: [
+      { name: "Start point",
+        type: "coordinates",
+        ref: startPoint
+      }
+    ],
     run: function(){
-      customObject.view.x = 300;
-      customObject.view.y = 300;
+      customObject.view.x = startPoint.x;
+      customObject.view.y = startPoint.y;
       zAnimator.mainContainer.addChild(customObject.view);
     },
     stop: function (){

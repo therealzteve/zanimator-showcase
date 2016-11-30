@@ -1,5 +1,6 @@
 'use strict';
 exports.create = function(zAnimator){
+  var startPoint = { 'x': 0, 'y': 0 };
 
   var squareShape = zAnimator.geometry.shapes.square(100);
   var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(5), '#F00');
@@ -17,8 +18,14 @@ exports.create = function(zAnimator){
 
   var example = {
     name: 'Path mover example',
+    controls: [
+      { name: "Start point",
+        type: "coordinates",
+        ref: startPoint
+      }
+    ],
     run: function(){
-      console.log(square);
+
       square.view.x = 600;
       square.view.y = 600;
 

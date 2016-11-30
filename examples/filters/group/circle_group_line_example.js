@@ -1,5 +1,6 @@
 'use strict';
 exports.create = function(zAnimator){
+  var startPoint = { 'x': 0, 'y': 0 };
   var squares = [];
 
   for(var j = 0; j < 4; j++){
@@ -13,11 +14,17 @@ exports.create = function(zAnimator){
 
   var linearRotator = zAnimator.filters.rotator.linearRotator(circleGroup, 0);
 
-  linearRotator.view.x = 500;
-  linearRotator.view.y = 500;
   var example = {
     name: 'Circle group with line example',
+    controls: [
+      {'name': 'Start point',
+       'type': 'coordinates',
+       'ref': startPoint
+     }
+    ],
     run: function(){
+      linearRotator.view.x = startPoint.x;
+      linearRotator.view.y = startPoint.y;
       linearRotator.start();
       zAnimator.mainContainer.addChild(linearRotator.view);
     },

@@ -1,14 +1,22 @@
 'use strict';
 exports.create = function(zAnimator){
+
+  var startPoint = { 'x': 0, 'y': 0 };
   var circleShape = zAnimator.geometry.shapes.circle(100);
   var pathDrawer = zAnimator.compositions.pathMagic.transitionPathDrawer(circleShape.path, {color: '#F00', width: 25});
   var randomPartPathDrawer = zAnimator.compositions.pathMagic.randomPartPathDrawer(circleShape.path);
 
   var example = {
     name: 'path drawer example',
+    controls: [
+      {'name': 'Start point',
+       'type': 'coordinates',
+       'ref': startPoint
+     }
+    ],
     run: function(){
-      pathDrawer.view.x = 300;
-      pathDrawer.view.y = 300;
+      pathDrawer.view.x = startPoint.x;
+      pathDrawer.view.y = startPoint.y;
       randomPartPathDrawer.view.x = 200;
       randomPartPathDrawer.view.y = 200;
       pathDrawer.start();
