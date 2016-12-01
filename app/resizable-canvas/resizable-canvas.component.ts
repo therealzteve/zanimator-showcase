@@ -33,6 +33,14 @@ export class ResizableCanvasComponent {
     this.white = !this.white;
   }
 
+  public resizeCanvasHorizontal(event){
+    (<any>document.getElementById(this.canvasId)).width = (<any>document.getElementById(this.canvasId)).width + event.x;
+  }
+
+  public resizeCanvasVertical(event){
+    (<any>document.getElementById(this.canvasId)).height = (<any>document.getElementById(this.canvasId)).height + event.y;
+  }
+
   ngAfterViewInit(){
     this.zAnimator = zAnimator.create(this.canvasId);
     this.animatorInitialized.emit(this.zAnimator);
