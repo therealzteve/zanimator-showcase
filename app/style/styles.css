@@ -5,6 +5,7 @@ html, body {
 #myCanvas{
   border: 1px dashed #AAA;
   margin: 3px;
+  float:left;
 }
 
 .showcase-box-inner {
@@ -20,4 +21,18 @@ html, body {
 .list-group-example:hover{
   background-color: #DDD;
   cursor: pointer;
+}
+
+.dragControl {
+  background: #000;
+  width: 20px;
+  height: 20px;
+}
+
+.horizontalDrag{
+  float:left;
+}
+
+.verticalDrag{
+  clear: both;
 }

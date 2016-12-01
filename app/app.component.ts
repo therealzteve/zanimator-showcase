@@ -25,8 +25,7 @@ export class AppComponent {
     this.white = !this.white;
   }
 
-  ngAfterViewInit(){
-    this.zAnimator = zAnimator.create("myCanvas");
-    this.stateService.init(this.zAnimator);
+  canvasInitialized(animator){
+    this.stateService.init(animator);
   }
 }
