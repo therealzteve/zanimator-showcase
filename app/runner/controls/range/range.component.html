@@ -1,0 +1,12 @@
+<div *ngIf="mycontrol">
+  <span>{{mycontrol.ref.value}}</span>
+  <nouislider
+    [connect]="true"
+    [min]="0" [max]="200" [step]="1"
+    (start)="showPreview=true" (end)="showPreview=false"
+    (slide)="preview=$event"
+    [(ngModel)]="mycontrol.ref.value" (ngModelChange)="sendChange()">
+  </nouislider>
+  <span *ngIf="showPreview">{{preview}}</span>
+
+</div>

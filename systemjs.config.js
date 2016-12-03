@@ -22,6 +22,9 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
+      'angular2-color-picker': 'npm:angular2-color-picker',
+      'nouislider': 'npm:nouislider',
+      'ng2-nouislider': 'npm:ng2-nouislider',
       '@zAnimator': 'npm:zAnimator/lib/zAnimator.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
@@ -38,7 +41,15 @@
       },
       rxjs: {
         defaultExtension: 'js'
-      }
+      },
+      'angular2-color-picker': { main:'index.js', defaultExtension: 'js'},
+      'nouislider': {
+        main: 'distribute/nouislider.js', defaultExtension: 'js'
+       },
+      'ng2-nouislider': {
+        main: 'src/nouislider.js',
+        defaultExtension: 'js'
+       }
     }
   });
 })(this);

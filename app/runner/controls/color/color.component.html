@@ -1,0 +1,3 @@
+<div *ngIf="mycontrol">
+  <input type="text" [colorPicker]="mycontrol.ref.color" (colorPickerChange)="mycontrol.ref.color=$event;sendChange()" [style.background]="mycontrol.ref.color" [value]="mycontrol.ref.color" />
+</div>
