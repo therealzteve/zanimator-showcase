@@ -1,7 +1,7 @@
 exports.create = function(zAnimator){
   var position = { x: 0, y: 0};
   var color = { color: "#000"};
-  var size = { value: 0};
+  var size = { value: 0, min: 0, max: 300};
   var mover;
 
   var example = {

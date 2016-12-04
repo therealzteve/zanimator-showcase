@@ -2,7 +2,7 @@
   <span>{{mycontrol.ref.value}}</span>
   <nouislider
     [connect]="true"
-    [min]="0" [max]="200" [step]="1"
+    [min]="mycontrol.ref.min" [max]="mycontrol.ref.max" [step]="getStepAmount()"
     (start)="showPreview=true" (end)="showPreview=false"
     (slide)="preview=$event"
     [(ngModel)]="mycontrol.ref.value" (ngModelChange)="sendChange()">

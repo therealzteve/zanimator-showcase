@@ -21,4 +21,11 @@ export class RangeComponent {
   public sendChange(){
     this.onChanged.emit();
   }
+
+  public getStepAmount(){
+    if(typeof this.mycontrol.ref.step != 'undefined'){
+      return this.mycontrol.ref.step;
+    }
+    return 1;
+  }
 }
