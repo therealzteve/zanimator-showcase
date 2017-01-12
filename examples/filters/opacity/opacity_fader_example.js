@@ -1,8 +1,8 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
-  var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(10), '#F00');
-  var fader = zAnimator.filters.opacity.fader(square);
+  var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
+  var fader = zAnimator.filters.opacity.fader({child: square});
 
   var example = {
     name: 'Fader Example',

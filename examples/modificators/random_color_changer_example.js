@@ -1,8 +1,8 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
-  var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(1000), '#000');
-  var colorChanger = zAnimator.modificators.color.randomColorChanger(square);
+  var square = zAnimator.factory.square({ squareShape: zAnimator.geometry.shapes.square({sidelength: 1000}), color: '#000'});
+  var colorChanger = zAnimator.modificators.color.randomColorChanger({subject: square});
 
   var example = {
     name: 'random color changer example',

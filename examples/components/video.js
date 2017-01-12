@@ -3,7 +3,7 @@ exports.create = function(zAnimator){
 
     var startPoint = { 'x': 0, 'y': 0 };
     var scale = { 'value': 1, 'min': 0, 'max': 1, 'step': 0.1};
-    var image = zAnimator.factory.image({ source: document.getElementById("js-video")});
+    var image = zAnimator.factory.video({ source: 'resources/video.mp4'});
 
 
     var example = {
@@ -19,11 +19,12 @@ exports.create = function(zAnimator){
         }
       ],
       run: function(){
-        console.log("running video example");
         image.view.x = startPoint.x;
         image.view.y = startPoint.y;
         image.scale = scale.value;
         image.draw();
+        image.stop();
+        image.play();
         zAnimator.mainContainer.addChild(image.view);
       },
       stop: function (){

@@ -2,9 +2,9 @@
 exports.create = function(zAnimator){
 
   var startPoint = { 'x': 0, 'y': 0 };
-  var circleShape = zAnimator.geometry.shapes.circle(100);
-  var pathDrawer = zAnimator.compositions.pathMagic.transitionPathDrawer(circleShape.path, {color: '#F00', width: 25});
-  var randomPartPathDrawer = zAnimator.compositions.pathMagic.randomPartPathDrawer(circleShape.path);
+  var circleShape = zAnimator.geometry.shapes.circle({radius: 100});
+  var pathDrawer = zAnimator.compositions.pathMagic.transitionPathDrawer({path: circleShape.path, pathOptions: {color: '#F00', width: 25}});
+  var randomPartPathDrawer = zAnimator.compositions.pathMagic.randomPartPathDrawer({path: circleShape.path});
 
   var example = {
     name: 'path drawer example',

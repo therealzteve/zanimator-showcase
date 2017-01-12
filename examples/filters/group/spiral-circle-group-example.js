@@ -4,14 +4,14 @@ exports.create = function(zAnimator){
   var squares = [];
 
   for(var j = 0; j < 200; j++){
-    var square2 = zAnimator.factory.square(zAnimator.geometry.shapes.square(5), '#F00');
-    var flasher = zAnimator.filters.opacity.flasher(square2);
+    var square2 = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 5}), color: '#F00'});
+    var flasher = zAnimator.filters.opacity.flasher({child: square2});
     flasher.start();
-    var fader = zAnimator.filters.opacity.fader(flasher, 1);
+    var fader = zAnimator.filters.opacity.fader({child: flasher, speed: 1});
     squares.push(fader);
   }
 
-  var circleGroup = zAnimator.filters.group.spiralCircleGroup(squares, 2, 100, 4);
+  var circleGroup = zAnimator.filters.group.spiralCircleGroup({children: squares, rounds: 2, startRadius: 100, endRadius: 4});
 
   var example = {
     name: 'Spiral circle group Example',

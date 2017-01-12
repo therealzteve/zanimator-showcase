@@ -5,14 +5,14 @@ exports.create = function(zAnimator){
   var squares = [];
 
   for(var j = 0; j < 100; j++){
-    var square2 = zAnimator.factory.square(zAnimator.geometry.shapes.square(30), '#F00');
-    var flasher = zAnimator.filters.opacity.flasher(square2);
+    var square2 = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 30}), color: '#F00'});
+    var flasher = zAnimator.filters.opacity.flasher({child:square2});
     flasher.start();
-    var fader = zAnimator.filters.opacity.fader(flasher, 1);
+    var fader = zAnimator.filters.opacity.fader({child:flasher, speed: 1});
     squares.push(fader);
   }
 
-  var circleGroup = zAnimator.filters.group.circleGroup(squares, 100);
+  var circleGroup = zAnimator.filters.group.circleGroup({children: squares, radius: 100 });
 
   var example = {
     name: 'Circle group Example',

@@ -2,9 +2,9 @@
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
 
-  var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(10), '#F00');
-  var fader = zAnimator.filters.opacity.fader(square);
-  var mover = zAnimator.filters.mover.point2point.linear(fader, 300);
+  var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
+  var fader = zAnimator.filters.opacity.fader({child: square});
+  var mover = zAnimator.filters.mover.point2point.linear({child: fader, speed: 300});
 
   var example = {
     name: 'Linear Mover Example',

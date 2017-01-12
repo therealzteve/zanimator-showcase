@@ -4,15 +4,15 @@ exports.create = function(zAnimator){
   var squares = [];
 
   for(var j = 0; j < 4; j++){
-    var line = zAnimator.factory.line(zAnimator.geometry.paths.line({x: 0, y: 0}, {x:0, y: 100}), 100, '#F00');
-    var rotator = zAnimator.filters.rotator.linearRotator(line, 180);
+    var line = zAnimator.factory.line({linePath: zAnimator.geometry.paths.line({start: {x: 0, y: 0}, end:  {x:0, y: 100}}), thickness: 100, color: '#F00'});
+    var rotator = zAnimator.filters.rotator.linearRotator({child: line, degrees: 180});
     squares.push(rotator);
     rotator.start();
   }
 
-  var circleGroup = zAnimator.filters.group.randomCircleGroup(squares, 0, 0);
+  var circleGroup = zAnimator.filters.group.randomCircleGroup({children: squares, radius: 0, randomRange: 0});
 
-  var linearRotator = zAnimator.filters.rotator.linearRotator(circleGroup, 0);
+  var linearRotator = zAnimator.filters.rotator.linearRotator({child: circleGroup, speed: 10});
 
   var example = {
     name: 'Circle group with line example',

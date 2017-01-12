@@ -2,19 +2,19 @@
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
 
-  var squareShape = zAnimator.geometry.shapes.square(100);
-  var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(5), '#F00');
-  var pathMover = zAnimator.filters.mover.path.pathMover(square, 1.3, squareShape.path);
+  var squareShape = zAnimator.geometry.shapes.square({sidelength: 100});
+  var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 5}), color: '#F00'});
+  var pathMover = zAnimator.filters.mover.path.pathMover({child: square, speed: 1.3, path: squareShape.path});
 
-  var circleShape = zAnimator.geometry.shapes.circle(100);
-  var circle = zAnimator.factory.circle(zAnimator.geometry.shapes.circle(30), '#F00');
-  var circlePathMover = zAnimator.filters.mover.path.pathMover(circle, 1.3, circleShape.path);
+  var circleShape = zAnimator.geometry.shapes.circle({radius: 100});
+  var circle = zAnimator.factory.circle({circleShape: zAnimator.geometry.shapes.circle({radius: 30}), color: '#F00'});
+  var circlePathMover = zAnimator.filters.mover.path.pathMover({child: circle, speed: 1.3, path: circleShape.path });
 
-  var circle2 = zAnimator.factory.circle(zAnimator.geometry.shapes.circle(3), '#F00');
-  var bezierPath = zAnimator.geometry.paths.bezierCurve({x: 0, y: 0}, {x: 100, y: 0}, {x: 0, y: -50}, {x: 500, y: 50});
-  var bezierPathMover = zAnimator.filters.mover.path.pathMover(circle2, 1.3, bezierPath);
+  var circle2 = zAnimator.factory.circle({circleShape: zAnimator.geometry.shapes.circle({radius: 3}), color: '#F00'});
+  var bezierPath = zAnimator.geometry.paths.bezierCurve({start: {x: 0, y: 0}, end: {x: 100, y: 0}, cpoint1:  {x: 0, y: -50}, cpoint2: {x: 500, y: 50}});
+  var bezierPathMover = zAnimator.filters.mover.path.pathMover({child: circle2, speed: 1.3, path: bezierPath});
 
-  var staticCircle = zAnimator.factory.circle(circleShape, '#00F');
+  var staticCircle = zAnimator.factory.circle({circleShape: circleShape, color: '#00F'});
 
   var example = {
     name: 'Path mover example',

@@ -4,10 +4,10 @@ exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
   var squares = [];
   for(var i = 0; i < 10; i++){
-    var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(10), '#F00');
+    var square = zAnimator.factory.square( { squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color:  '#F00'});
     squares.push(square);
   }
-  var centerGroup = zAnimator.filters.group.centerGroup(null, {'width': 50});
+  var centerGroup = zAnimator.filters.group.centerGroup({children: [],width: 50});
 
   var objectCount = 0;
   var increase = true;

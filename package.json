@@ -9,7 +9,6 @@
     "tsc:w": "tsc -w",
     "processStaticFiles": "copyfiles -u 1 app/**/*.html app/**/*.css .tmp",
     "watchStaticFiles": "onchange \"app/**/*.html\" \"app/**/*.css\" -- npm run processStaticFiles",
-    "preinstall": "npm install ../zAnimator",
     "postinstall": "node ./hack-remove-files.js"
   },
   "licenses": [

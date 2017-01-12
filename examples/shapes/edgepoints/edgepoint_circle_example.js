@@ -1,8 +1,8 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
-  var circleShape = zAnimator.geometry.shapes.circle(100);
-  var circle = zAnimator.factory.circle(circleShape, '#F00');
+  var circleShape = zAnimator.geometry.shapes.circle({radius: 100});
+  var circle = zAnimator.factory.circle({circleShape: circleShape, color: '#F00'});
 
   var example = {
     name: 'Edge circle point example',

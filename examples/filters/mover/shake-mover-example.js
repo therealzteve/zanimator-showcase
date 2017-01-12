@@ -1,9 +1,8 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
-  var square = zAnimator.factory.square(zAnimator.geometry.shapes.square(10), '#F00');
-  var fader = zAnimator.filters.opacity.fader(square);
-  var mover = zAnimator.filters.mover.point2point.linearShake(fader, 300, 30);
+  var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
+  var mover = zAnimator.filters.mover.point2point.linearShake({child: square, speed: 300, shakeAmount: 30});
   var example = {
     name: 'Shake Mover Example',
     controls: [
@@ -13,16 +12,14 @@ exports.create = function(zAnimator){
       }
     ],
     run: function(){
-      fader.view.x = startPoint.x;
-      fader.view.y = startPoint.y;
-      fader.start();
+      square.view.x = startPoint.x;
+      square.view.y = startPoint.y;
       mover.start();
       zAnimator.mainContainer.addChild(mover.view);
-      mover.moveTo({'x': 300, 'y': 300 }, () => { fader.stop(); });
+      mover.moveTo({'x': 300, 'y': 300 });
     },
     stop: function (){
-      fader.stop();
-      zAnimator.mainContainer.removeChild(fader.view);
+      zAnimator.mainContainer.removeChild(mover.view);
     }
   };
 
