@@ -16,11 +16,11 @@ exports.create = function(zAnimator){
     ],
     run: function(){
       scalePulsar.start();
-      zAnimator.mainContainer.addChild(circle.view);
+      zAnimator.mainContainer.add(circle.view);
     },
     stop: function (){
       scalePulsar.stop();
-      zAnimator.mainContainer.removeChild(circle.view);
+      zAnimator.mainContainer.remove(circle.view);
     }
   };
 

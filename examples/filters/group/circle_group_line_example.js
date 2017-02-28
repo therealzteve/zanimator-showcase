@@ -26,11 +26,11 @@ exports.create = function(zAnimator){
       linearRotator.view.x = startPoint.x;
       linearRotator.view.y = startPoint.y;
       linearRotator.start();
-      zAnimator.mainContainer.addChild(linearRotator.view);
+      zAnimator.mainContainer.add(linearRotator.view);
     },
     stop: function (){
       linearRotator.stop();
-      zAnimator.mainContainer.removeChild(linearRotator.view);
+      zAnimator.mainContainer.remove(linearRotator.view);
     }
   };
 

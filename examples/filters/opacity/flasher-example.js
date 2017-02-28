@@ -17,11 +17,11 @@ exports.create = function(zAnimator){
         flasher.start();
         flasher.view.x = startPoint.x;
         flasher.view.y = startPoint.y;
-        zAnimator.mainContainer.addChild(flasher.view);
+        zAnimator.mainContainer.add(flasher.view);
       },
       stop: function (){
         flasher.stop();
-        zAnimator.mainContainer.removeChild(flasher.view);
+        zAnimator.mainContainer.remove(flasher.view);
       }
     }
 

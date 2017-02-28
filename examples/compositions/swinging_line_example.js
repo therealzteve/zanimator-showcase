@@ -16,11 +16,11 @@ exports.create = function(zAnimator){
       swingingLine.view.x = startPoint.x;
       swingingLine.view.y = startPoint.y;
       swingingLine.start();
-      zAnimator.mainContainer.addChild(swingingLine.view);
+      zAnimator.mainContainer.add(swingingLine.view);
     },
     stop: function (){
       swingingLine.stop();
-      zAnimator.mainContainer.removeChild(swingingLine.view);
+      zAnimator.mainContainer.remove(swingingLine.view);
     }
   };
 

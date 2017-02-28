@@ -39,12 +39,12 @@ exports.create = function(zAnimator){
       rectangleGroup.view.x = startPoint.x;
       rectangleGroup.view.y = startPoint.y;
 
-      zAnimator.mainContainer.addChild(rectangleGroup.view);
+      zAnimator.mainContainer.add(rectangleGroup.view);
       intervalProxy.setProp('color', "#00F");
     },
     stop: function (){
       if(rectangleGroup){
-        zAnimator.mainContainer.removeChild(rectangleGroup.view);
+        zAnimator.mainContainer.remove(rectangleGroup.view);
       }
     }
   };

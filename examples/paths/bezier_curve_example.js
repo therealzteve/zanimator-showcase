@@ -16,10 +16,10 @@ exports.create = function(zAnimator){
     run: function(){
       customObject.view.x = startPoint.x;
       customObject.view.y = startPoint.y;
-      zAnimator.mainContainer.addChild(customObject.view);
+      zAnimator.mainContainer.add(customObject.view);
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(customObject.view);
+      zAnimator.mainContainer.remove(customObject.view);
     }
   }
 

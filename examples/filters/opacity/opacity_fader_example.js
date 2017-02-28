@@ -16,11 +16,11 @@ exports.create = function(zAnimator){
       fader.view.x = startPoint.x;
       fader.view.y = startPoint.y;
       fader.start();
-      zAnimator.mainContainer.addChild(fader.view);
+      zAnimator.mainContainer.add(fader.view);
     },
     stop: function (){
       fader.stop();
-      zAnimator.mainContainer.removeChild(fader.view);
+      zAnimator.mainContainer.remove(fader.view);
     }
   };
 

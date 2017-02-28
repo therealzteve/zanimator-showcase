@@ -29,10 +29,10 @@ exports.create = function(zAnimator){
       circleGroup.view.x = startPoint.x;
       circleGroup.view.y = startPoint.y;
 
-      zAnimator.mainContainer.addChild(circleGroup.view);
+      zAnimator.mainContainer.add(circleGroup.view);
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(circleGroup.view);
+      zAnimator.mainContainer.remove(circleGroup.view);
       for(var f of squares){
         f.stop();
       }

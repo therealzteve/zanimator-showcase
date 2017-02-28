@@ -20,10 +20,10 @@ exports.create = function(zAnimator){
     run: function(){
       centerGroup.view.x = startPoint.x;
       centerGroup.view.y = startPoint.y;
-      zAnimator.mainContainer.addChild(centerGroup.view);
+      zAnimator.mainContainer.add(centerGroup.view);
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(centerGroup.view);
+      zAnimator.mainContainer.remove(centerGroup.view);
     }
   }
 

@@ -24,7 +24,7 @@ exports.create = function(zAnimator){
       centerGroup.view.x = startPoint.x;
       centerGroup.view.y = startPoint.y;
 
-      zAnimator.mainContainer.addChild(centerGroup.view);
+      zAnimator.mainContainer.add(centerGroup.view);
 
       proxy.setProp('color', '#000');
       for(var square of squares){
@@ -33,7 +33,7 @@ exports.create = function(zAnimator){
 
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(centerGroup.view);
+      zAnimator.mainContainer.remove(centerGroup.view);
     }
   }
 

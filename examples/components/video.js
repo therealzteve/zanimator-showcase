@@ -25,10 +25,10 @@ exports.create = function(zAnimator){
         image.draw();
         image.stop();
         image.play();
-        zAnimator.mainContainer.addChild(image.view);
+        zAnimator.mainContainer.add(image.view);
       },
       stop: function (){
-        zAnimator.mainContainer.removeChild(image.view);
+        zAnimator.mainContainer.remove(image.view);
       }
     }
 

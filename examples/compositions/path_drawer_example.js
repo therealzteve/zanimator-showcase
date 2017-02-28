@@ -21,14 +21,14 @@ exports.create = function(zAnimator){
       randomPartPathDrawer.view.y = 200;
       pathDrawer.start();
       randomPartPathDrawer.start();
-      zAnimator.mainContainer.addChild(pathDrawer.view);
-      zAnimator.mainContainer.addChild(randomPartPathDrawer.view);
+      zAnimator.mainContainer.add(pathDrawer.view);
+      zAnimator.mainContainer.add(randomPartPathDrawer.view);
     },
     stop: function (){
       pathDrawer.stop();
       randomPartPathDrawer.stop();
-      zAnimator.mainContainer.removeChild(pathDrawer.view);
-      zAnimator.mainContainer.removeChild(randomPartPathDrawer.view);
+      zAnimator.mainContainer.remove(pathDrawer.view);
+      zAnimator.mainContainer.remove(randomPartPathDrawer.view);
     }
   };
 

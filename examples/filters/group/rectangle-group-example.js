@@ -24,10 +24,10 @@ exports.create = function(zAnimator){
       rectangleGroup.view.x = startPoint.x;
       rectangleGroup.view.y = startPoint.y;
 
-      zAnimator.mainContainer.addChild(rectangleGroup.view);
+      zAnimator.mainContainer.add(rectangleGroup.view);
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(rectangleGroup.view);
+      zAnimator.mainContainer.remove(rectangleGroup.view);
     }
   };
 

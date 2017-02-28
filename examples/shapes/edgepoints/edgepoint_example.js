@@ -17,17 +17,17 @@ exports.create = function(zAnimator){
     run: function(){
       square.view.x = startPoint.x;
       square.view.y = startPoint.y;
-      zAnimator.mainContainer.addChild(square.view);
+      zAnimator.mainContainer.add(square.view);
       for(var point of squareShape.path.getEdgePoints()){
         var edgeShape = zAnimator.geometry.shapes.square({sidelength: 10});
         var edgeObject = zAnimator.factory.square({squareShape: edgeShape, color: '#000'});
         edgeObject.view.x = point.x;
         edgeObject.view.y = point.y;
-        zAnimator.mainContainer.addChild(edgeObject.view);
+        zAnimator.mainContainer.add(edgeObject.view);
       }
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(square.view);
+      zAnimator.mainContainer.remove(square.view);
     }
   };
 

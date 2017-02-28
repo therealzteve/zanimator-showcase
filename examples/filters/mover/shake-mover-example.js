@@ -15,11 +15,11 @@ exports.create = function(zAnimator){
       square.view.x = startPoint.x;
       square.view.y = startPoint.y;
       mover.start();
-      zAnimator.mainContainer.addChild(mover.view);
+      zAnimator.mainContainer.add(mover.view);
       mover.moveTo({'x': 300, 'y': 300 });
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(mover.view);
+      zAnimator.mainContainer.remove(mover.view);
     }
   };
 

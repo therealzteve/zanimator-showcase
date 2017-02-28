@@ -20,12 +20,12 @@ exports.create = function(zAnimator){
       line.view.y = startPoint.y;
       halfLine.view.x = startPoint.x;
       halfLine.view.y = startPoint.y + 100;
-      zAnimator.mainContainer.addChild(line.view);
-      zAnimator.mainContainer.addChild(halfLine.view);
+      zAnimator.mainContainer.add(line.view);
+      zAnimator.mainContainer.add(halfLine.view);
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(line.view);
-      zAnimator.mainContainer.removeChild(halfLine.view);
+      zAnimator.mainContainer.remove(line.view);
+      zAnimator.mainContainer.remove(halfLine.view);
     }
   };
 

@@ -15,10 +15,10 @@ exports.create = function(zAnimator){
     run: function(){
       circle.view.x = startPoint.x;
       circle.view.y = startPoint.y;
-      zAnimator.mainContainer.addChild(circle.view);
+      zAnimator.mainContainer.add(circle.view);
     },
     stop: function (){
-      zAnimator.mainContainer.removeChild(circle.view);
+      zAnimator.mainContainer.remove(circle.view);
     }
   };
 

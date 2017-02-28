@@ -19,12 +19,12 @@ exports.create = function(zAnimator){
       fader.view.y = startPoint.y;
       fader.start();
       mover.start();
-      zAnimator.mainContainer.addChild(mover.view);
+      zAnimator.mainContainer.add(mover.view);
       mover.moveTo({'x': 100, 'y': 0 }, () => { fader.stop(); });
     },
     stop: function (){
       fader.stop();
-      zAnimator.mainContainer.removeChild(fader.view);
+      zAnimator.mainContainer.remove(fader.view);
     }
   }
 

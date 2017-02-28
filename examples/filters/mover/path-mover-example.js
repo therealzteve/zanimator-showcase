@@ -38,10 +38,10 @@ exports.create = function(zAnimator){
       circle2.view.x = 200;
       circle2.view.y = 200;
 
-      zAnimator.mainContainer.addChild(staticCircle.view);
-      zAnimator.mainContainer.addChild(circlePathMover.view);
-      zAnimator.mainContainer.addChild(pathMover.view);
-      zAnimator.mainContainer.addChild(bezierPathMover.view);
+      zAnimator.mainContainer.add(staticCircle.view);
+      zAnimator.mainContainer.add(circlePathMover.view);
+      zAnimator.mainContainer.add(pathMover.view);
+      zAnimator.mainContainer.add(bezierPathMover.view);
 
       circlePathMover.start();
       pathMover.start();
@@ -51,10 +51,10 @@ exports.create = function(zAnimator){
       circlePathMover.stop();
       pathMover.stop();
       bezierPathMover.stop();
-      zAnimator.mainContainer.removeChild(staticCircle.view);
-      zAnimator.mainContainer.removeChild(circlePathMover.view);
-      zAnimator.mainContainer.removeChild(pathMover.view);
-      zAnimator.mainContainer.removeChild(bezierPathMover.view);
+      zAnimator.mainContainer.remove(staticCircle.view);
+      zAnimator.mainContainer.remove(circlePathMover.view);
+      zAnimator.mainContainer.remove(pathMover.view);
+      zAnimator.mainContainer.remove(bezierPathMover.view);
 
     }
   };

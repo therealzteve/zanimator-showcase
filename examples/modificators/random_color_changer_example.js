@@ -16,11 +16,11 @@ exports.create = function(zAnimator){
       square.view.x = startPoint.x;
       square.view.y = startPoint.y;
       colorChanger.start();
-      zAnimator.mainContainer.addChild(square.view);
+      zAnimator.mainContainer.add(square.view);
     },
     stop: function (){
       colorChanger.stop();
-      zAnimator.mainContainer.removeChild(square.view);
+      zAnimator.mainContainer.remove(square.view);
     }
   };
 

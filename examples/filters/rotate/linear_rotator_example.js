@@ -17,11 +17,11 @@ exports.create = function(zAnimator){
       rotator.start();
       rotator.view.x = startPoint.x;
       rotator.view.y = startPoint.y;
-      zAnimator.mainContainer.addChild(rotator.view);
+      zAnimator.mainContainer.add(rotator.view);
     },
     stop: function (){
       rotator.stop();
-      zAnimator.mainContainer.removeChild(rotator.view);
+      zAnimator.mainContainer.remove(rotator.view);
     }
   };
 

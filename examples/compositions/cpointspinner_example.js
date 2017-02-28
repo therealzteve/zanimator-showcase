@@ -31,16 +31,17 @@ exports.create = function(zAnimator){
      }
     ],
     run: function(){
-      swingingLine = zAnimator.compositions.pathMagic.bezier.cpointSpinner({length: length.value, time: time.value, radius: scale.value});
+      var interval = zAnimator.interval({type: 'ms', ms: time.value});
+      swingingLine = zAnimator.compositions.pathMagic.bezier.cpointSpinner({length: length.value, time: interval, radius: scale.value});
       swingingLine.view.x = startPoint.x;
       swingingLine.view.y = startPoint.y;
       swingingLine.start();
-      zAnimator.mainContainer.addChild(swingingLine.view);
+      zAnimator.mainContainer.add(swingingLine);
     },
     stop: function (){
       if(swingingLine){
         swingingLine.stop();
-        zAnimator.mainContainer.removeChild(swingingLine.view);
+        zAnimator.mainContainer.remove(swingingLine);
       }
     }
   };

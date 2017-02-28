@@ -47,12 +47,12 @@ exports.create = function(zAnimator){
       centerGroup.view.x = startPoint.x;
       centerGroup.view.y = startPoint.y;
 
-      zAnimator.mainContainer.addChild(centerGroup.view);
+      zAnimator.mainContainer.add(centerGroup.view);
       zAnimator.loop.addAnimation(loopHandler);
     },
     stop: function (){
       zAnimator.loop.removeAnimation(loopHandler);
-      zAnimator.mainContainer.removeChild(centerGroup.view);
+      zAnimator.mainContainer.remove(centerGroup.view);
     }
   }
 
