@@ -2,15 +2,14 @@
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
   var squares = [];
-  for(var i = 0; i < 10; i++){
-    var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
-    var fader = zAnimator.filters.opacity.fader({child: square});
-    squares.push(fader);
+  for(var i = 0; i < 100; i++){
+    var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 80}), color: '#000'});
+    squares.push(square);
   }
-  var rectangleGroup = zAnimator.filters.group.rectangleGroup({children: squares, columns: 25});
+  var rectangleGroup = zAnimator.compositions.squareGroupStuff.randomSquareSwitch({children: squares, columns: 10, visible: 50});
 
   var example = {
-    name: 'Rectangle group Example',
+    name: 'Random square switch example',
     controls: [
       {'name': 'Start point',
        'type': 'coordinates',
@@ -18,13 +17,11 @@ exports.create = function(zAnimator){
      }
     ],
     run: function(){
-      for(var f of squares){
-        f.start();
-      }
+
       rectangleGroup.view.x = startPoint.x;
       rectangleGroup.view.y = startPoint.y;
-
       zAnimator.mainContainer.add(rectangleGroup);
+      rectangleGroup.switch();
     },
     stop: function (){
       zAnimator.mainContainer.remove(rectangleGroup);
