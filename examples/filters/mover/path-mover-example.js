@@ -5,7 +5,7 @@ exports.create = function(zAnimator){
   var squareShape = zAnimator.geometry.shapes.square({sidelength: 100});
   var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 5}), color: '#F00'});
   var pathMover = zAnimator.filters.mover.path.pathMover({child: square, path: squareShape.path, interval: {type: 'bpm', bpm: 120}});
-  console.log(pathMover.view);
+
   // var circleShape = zAnimator.geometry.shapes.circle({radius: 100});
   // var circle = zAnimator.factory.circle({circleShape: zAnimator.geometry.shapes.circle({radius: 30}), color: '#F00'});
   // var circlePathMover = zAnimator.filters.mover.path.pathMover({child: circle, speed: 1.3, path: circleShape.path, interval: {type: 'bpm', bpm: 120} });
