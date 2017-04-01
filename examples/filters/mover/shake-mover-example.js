@@ -1,8 +1,10 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
+
+  var intervalBpm = zAnimator.interval({type: 'bpm', bpm: 120});
   var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
-  var mover = zAnimator.filters.mover.point2point.linearShake({child: square, speed: 300, shakeAmount: 30});
+  var mover = zAnimator.filters.mover.linear.linearShake({child: square, goalPoint: {x: 100, y: 100}, shakeAmount: 30, interval: intervalBpm});
   var example = {
     name: 'Shake Mover Example',
     controls: [
