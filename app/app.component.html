@@ -8,6 +8,6 @@
 <div class="showcase col-md-10 container-fluid showcase-box">
   <div class="showcase-box-inner">
     <my-resizable-canvas  [width]="1024" [height]="768" (animatorInitialized)="canvasInitialized($event)"></my-resizable-canvas>
-    <my-runner></my-runner>
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -5,7 +5,7 @@ exports.create = function(zAnimator){
   var intervalBpm = zAnimator.interval({type: 'bpm', bpm: 120});
   var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
   //var fader = zAnimator.filters.opacity.fader({child: square});
-  var mover = zAnimator.filters.mover.linear.linear({child: square, speed: 300, goalPoint: {x: 100, y: 100}, interval: intervalBpm});
+  var mover = zAnimator.filters.mover.linear.linear({child: square, goalPoint: {x: 100, y:0}, interval: intervalBpm});
 
   var example = {
     name: 'Linear Mover Example',

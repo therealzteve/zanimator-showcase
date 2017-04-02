@@ -3,7 +3,7 @@
   <li class="list-group-item" *ngFor="let entry of getVisibleFolders()">
     <my-tree-folder  [searchword]="searchword" [folder]="entry" ></my-tree-folder>
   </li>
-  <li class="list-group-item list-group-example" (click)="stateService.selectExample(entry)" *ngFor="let entry of getVisibleExamples()" >
+  <li class="list-group-item list-group-example" (click)="selectExample(entry)" *ngFor="let entry of getVisibleExamples()" >
     {{entry.name}}
   </li>
 </ul>

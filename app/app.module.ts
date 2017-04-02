@@ -4,6 +4,8 @@ import { HttpModule }    from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 import { ColorPickerModule } from 'angular2-color-picker';
 import { NouisliderModule } from 'ng2-nouislider';
+import { RouterModule }   from '@angular/router';
+
 
 /* Services */
 import { StateService } from './state/state.service';
@@ -21,7 +23,23 @@ import { ResizableCanvasComponent } from './resizable-canvas/resizable-canvas.co
 import { DragControlComponent } from './resizable-canvas/drag-control/drag-control.component';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, FormsModule, ColorPickerModule, NouisliderModule ],
+  imports:      [
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    ColorPickerModule,
+    NouisliderModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/app/0',
+        pathMatch: 'full'
+      },
+      {
+        path: 'app/:id',
+        component: RunnerComponent
+      }])
+  ],
   declarations: [
     AppComponent,
     TreeViewComponent,
@@ -32,7 +50,8 @@ import { DragControlComponent } from './resizable-canvas/drag-control/drag-contr
     ColorComponent,
     RangeComponent,
     ResizableCanvasComponent,
-    DragControlComponent],
+    DragControlComponent
+  ],
   bootstrap:    [ AppComponent ],
   providers:    [ StateService ],
   entryComponents: [CoordinatesComponent, ColorComponent, RangeComponent]

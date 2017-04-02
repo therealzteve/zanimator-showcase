@@ -1,11 +1,12 @@
 <html>
   <head>
+    <base href="/" />
     <title>Angular QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="app/style/styles.css">
-    <link rel="stylesheet" href="app/style/bootstrap-3.3.7-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="node_modules/nouislider/distribute/nouislider.css" />
+    <link rel="stylesheet" type="text/css" href="app/style/styles.css">
+    <link rel="stylesheet" type="text/css" href="app/style/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/nouislider/distribute/nouislider.css" />
 
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
@@ -16,7 +17,7 @@
     <script type="text/javascript" src="node_modules/zAnimator/lib/zAnimator.js"></script>
     <script type="text/javascript" src="node_modules/createjs-easeljs/lib/easeljs-0.8.2.min.js"></script>
     <!-- 2. Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
+    <script type="text/javascript" src="systemjs.config.js"></script>
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>

@@ -9,6 +9,8 @@ declare var System: any;
 export class StateService {
   private examples = [];
   private examplesUrl = './.tmp/test.json';
+  private pendingSelectedExampleName;
+  private pendingSelectedExampleFolder;
 
   public onNewExample = new Subject();
 
@@ -28,7 +30,7 @@ export class StateService {
                   example.folder = entry.path;
                   example.visible = true;
                   this.examples.push(example);
-                  this.selectExample(this.examples[0]);
+                  this.tryToSelectExample(example);
                   this.onNewExample.next(example);
                 } catch (e) {
                   console.warn(entry.example + " caused an error in the create method: ");
@@ -54,6 +56,17 @@ export class StateService {
     this.selectedExample = example;
   }
 
+  selectExampleByName(folder, name){
+    this.pendingSelectedExampleName = name;
+    this.pendingSelectedExampleFolder = folder;
+
+    for(var example of this.examples){
+      if(this.tryToSelectExample(example)){
+        return;
+      }
+    }
+  }
+
   loadExamples() {
      return this.http.get(this.examplesUrl)
                 .toPromise()
@@ -65,4 +78,26 @@ export class StateService {
   }
 
 
+  private tryToSelectExample(example){
+    if(this.pendingSelectedExampleName == ''){
+      return false;
+    }
+    if(this.arraysEqual(this.pendingSelectedExampleFolder, example.folder) && example.name === this.pendingSelectedExampleName){
+      this.selectExample(example);
+      this.pendingSelectedExampleName = '';
+      this.pendingSelectedExampleFolder = [];
+      return true;
+    }
+  }
+
+  private arraysEqual(arr1, arr2) {
+      if(arr1.length !== arr2.length)
+          return false;
+      for(var i = arr1.length; i--;) {
+          if(arr1[i] !== arr2[i])
+              return false;
+      }
+
+      return true;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StateService } from '../../state/state.service';
+import { Router }   from '@angular/router';
 
 @Component({
   selector: 'my-tree-folder',
@@ -14,9 +15,11 @@ export class FolderComponent implements OnInit {
   @Input()
   public searchword;
 
-  constructor(private stateService: StateService){
+  constructor(private stateService: StateService,  private router: Router){
 
   }
+
+
 
   ngOnInit() {
   }
@@ -40,5 +43,9 @@ export class FolderComponent implements OnInit {
       }
     }
     return visibleFolders;
+  }
+
+  public selectExample(example){
+    this.router.navigate(['/app', example.folder.join() + ',' + example.name]);
   }
 }
