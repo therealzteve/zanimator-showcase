@@ -4,10 +4,11 @@ exports.create = function(zAnimator){
   var width = { 'value': 100, 'min': 0, 'max': 500, 'step': 1};
   var height = { 'value': 100, 'min': 0, 'max': 500, 'step': 1};
 
+  var interval = zAnimator.interval({type: 'ms', ms: 1000});
   var squares = [];
   for(var i = 0; i < 1000; i++){
     var square =  zAnimator.factory.image({ source: 'resources/black_blur_dots.png'});
-    var fader = zAnimator.filters.opacity.fader({child: square});
+    var fader = zAnimator.filters.opacity.fader({child: square, interval: interval});
     squares.push(fader);
   }
   var rectangleGroup = zAnimator.filters.group.randomRectangleGroup({children: squares, columns: 25});

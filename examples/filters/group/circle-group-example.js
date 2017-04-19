@@ -8,7 +8,9 @@ exports.create = function(zAnimator){
     var square2 = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 30}), color: '#F00'});
     var flasher = zAnimator.filters.opacity.flasher({child:square2});
     flasher.start();
-    var fader = zAnimator.filters.opacity.fader({child:flasher, speed: 1});
+
+    var interval = zAnimator.interval({type: 'ms', ms: 1000});
+    var fader = zAnimator.filters.opacity.fader({child:flasher, interval: interval});
     squares.push(fader);
   }
 

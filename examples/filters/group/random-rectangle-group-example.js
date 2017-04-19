@@ -4,10 +4,11 @@ exports.create = function(zAnimator){
   var width = { 'value': 100, 'min': 0, 'max': 500, 'step': 1};
   var height = { 'value': 100, 'min': 0, 'max': 500, 'step': 1};
 
+  var interval = zAnimator.interval({type: 'ms', ms: 1000});
   var squares = [];
   for(var i = 0; i < 10; i++){
     var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 100}), color: '#F00'});
-    var fader = zAnimator.filters.opacity.fader({child: square});
+    var fader = zAnimator.filters.opacity.fader({child: square, interval: interval});
     squares.push(fader);
   }
   var rectangleGroup = zAnimator.filters.group.randomRectangleGroup({children: squares, columns: 25});

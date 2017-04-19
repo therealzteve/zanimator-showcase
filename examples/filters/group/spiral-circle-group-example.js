@@ -1,13 +1,15 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
+
+  var interval = zAnimator.interval({type: 'ms', ms: 1000});
   var squares = [];
 
   for(var j = 0; j < 200; j++){
     var square2 = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 5}), color: '#F00'});
     var flasher = zAnimator.filters.opacity.flasher({child: square2});
     flasher.start();
-    var fader = zAnimator.filters.opacity.fader({child: flasher, speed: 1});
+    var fader = zAnimator.filters.opacity.fader({child: flasher, interval: interval});
     squares.push(fader);
   }
 
