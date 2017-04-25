@@ -37,11 +37,12 @@ exports.create = function(zAnimator){
      }
     ],
     run: function(){
-      var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 1}), color: '#F00'});
+      var square = zAnimator.factory.circle({circleShape: zAnimator.geometry.shapes.circle({radius: 3}), color: 'rgba(0,255,210,0.2)'});
       background = zAnimator.compositions.movingBackgrounds.randomRectMoverBackground({
         amount: amount.value,
         width: width.value,
         height: height.value,
+        speed: speed.value,
         component: square
       });
       background.view.x = startPoint.x;

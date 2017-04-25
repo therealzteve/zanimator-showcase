@@ -16,10 +16,10 @@ exports.create = function(zAnimator){
       run: function(){
         image.view.x = startPoint.x;
         image.view.y = startPoint.y;
-        zAnimator.mainContainer.add(image.view);
+        zAnimator.mainContainer.add(image);
       },
       stop: function (){
-        zAnimator.mainContainer.remove(image.view);
+        zAnimator.mainContainer.remove(image);
       }
     }
 

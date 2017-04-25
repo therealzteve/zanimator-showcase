@@ -3,7 +3,7 @@ exports.create = function(zAnimator){
 
     var startPoint = { 'x': 0, 'y': 0 };
     var scale = { 'value': 1, 'min': 0, 'max': 1, 'step': 0.1};
-    var image = zAnimator.factory.video({ source: 'resources/video.mp4'});
+    var video = zAnimator.factory.video({ source: 'resources/video.mp4'});
 
 
     var example = {
@@ -19,16 +19,16 @@ exports.create = function(zAnimator){
         }
       ],
       run: function(){
-        image.view.x = startPoint.x;
-        image.view.y = startPoint.y;
-        image.scale = scale.value;
-        image.draw();
-        image.stop();
-        image.play();
-        zAnimator.mainContainer.add(image.view);
+        video.view.x = startPoint.x;
+        video.view.y = startPoint.y;
+        video.scale = scale.value;
+        video.draw();
+        video.stop();
+        video.play();
+        zAnimator.mainContainer.add(video);
       },
       stop: function (){
-        zAnimator.mainContainer.remove(image.view);
+        zAnimator.mainContainer.remove(video);
       }
     }
 

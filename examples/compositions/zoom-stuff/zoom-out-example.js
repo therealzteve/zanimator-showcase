@@ -4,7 +4,7 @@ exports.create = function(zAnimator){
 
   var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 80}), color: '#000'});
   var interval = zAnimator.interval({type: 'ms', ms: 1000});
-  var zoomOut = zAnimator.compositions.zoomStuff.zoomOut({subject: square, speed: interval});
+  var zoomOut = zAnimator.compositions.zoomStuff.zoomOut({child: square, speed: interval});
 
   var example = {
     name: 'zoom out example',
