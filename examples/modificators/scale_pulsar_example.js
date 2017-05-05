@@ -1,10 +1,8 @@
 'use strict';
 exports.create = function(zAnimator){
   var startPoint = { 'x': 0, 'y': 0 };
-  var circle = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#000'});
-  circle.view.x = 300;
-  circle.view.y = 300;
-  var scalePulsar = zAnimator.modificators.scale.linearPulsar({subject: circle, speed: 2000, limit: 10});
+  var circle = zAnimator.factory.circle({circleShape: zAnimator.geometry.shapes.circle({radius: 10}), color: '#000'});
+  var scalePulsar = zAnimator.modificators.scale.linearPulsar({subject: circle, interval: zAnimator.interval({type: 'ms', ms: 1000}), limit: 10});
 
   var example = {
     name: 'scale pulsar example',
@@ -15,12 +13,14 @@ exports.create = function(zAnimator){
       }
     ],
     run: function(){
+      circle.view.x = startPoint.x;
+      circle.view.y = startPoint.y;
       scalePulsar.start();
-      zAnimator.mainContainer.add(circle.view);
+      zAnimator.mainContainer.add(circle);
     },
     stop: function (){
       scalePulsar.stop();
-      zAnimator.mainContainer.remove(circle.view);
+      zAnimator.mainContainer.remove(circle);
     }
   };
 
