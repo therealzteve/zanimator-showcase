@@ -9,7 +9,8 @@
     "removeComments": false,
     "noImplicitAny": false,
     "outDir": ".tmp",
-    "rootDir": "app"
+    "rootDir": "app",
+    "lib": ["es2017", "dom"]
   },
   "include" : [
       "app/**/*.ts"
