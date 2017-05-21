@@ -6,7 +6,7 @@ exports.create = function(zAnimator){
   var incompleteCircles;
 
   var example = {
-    name: 'moving web points example',
+    name: 'incomplete circles example',
     controls: [
       {'name': 'Start point',
        'type': 'coordinates',

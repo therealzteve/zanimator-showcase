@@ -13,6 +13,7 @@ export class StateService {
   private pendingSelectedExampleFolder;
 
   public onNewExample = new Subject();
+  public onCanvasChange = new Subject();
 
   public selectedExample;
 
@@ -77,6 +78,9 @@ export class StateService {
     return this.examples;
   }
 
+  changeCanvas(width, height){
+    this.onCanvasChange.next({width: width, height: height});
+  }
 
   private tryToSelectExample(example){
     if(this.pendingSelectedExampleName == ''){

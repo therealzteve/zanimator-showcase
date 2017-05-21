@@ -18,6 +18,9 @@ export class RunnerComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe((params) =>{
+      if(params['width'] && params['height']){
+        this.stateService.changeCanvas(params['width'], params['height']); 
+      }
       var pathAsArray = params['id'].split(',');
       var exampleName = pathAsArray[pathAsArray.length - 1];
       pathAsArray.splice(-1,1)

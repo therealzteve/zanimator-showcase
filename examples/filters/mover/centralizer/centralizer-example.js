@@ -4,7 +4,7 @@ exports.create = function(zAnimator){
 
   var square = zAnimator.factory.square({squareShape: zAnimator.geometry.shapes.square({sidelength: 10}), color: '#F00'});
   var centralizer = zAnimator.filters.mover.center.centralizer({child: square, width: 50, height: 50});
-  var scalePulsar = zAnimator.modificators.scale.linearPulsar({subject: square, speed: {type: 'bpm', bpm: 30}, limit: 50});
+  var scalePulsar = zAnimator.modificators.scale.linearPulsar({subject: square, interval: {type: 'bpm', bpm: 30}, limit: 50});
   var example = {
     name: 'Centralizer Mover Example',
     controls: [

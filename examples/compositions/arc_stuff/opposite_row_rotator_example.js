@@ -21,12 +21,12 @@ exports.create = function(zAnimator){
     ],
     run: function(){
 
-      incompleteCircles = zAnimator.compositions.arcStuff.incompleteCircles({rows: rows.value, radius: 100, minDegrees: 0, maxDegrees: 20});
+      incompleteCircles = zAnimator.compositions.arcStuff.incompleteCircles({rows: rows.value, radius: 100, minDegrees: 25, maxDegrees: 180});
       incompleteCircles.view.x = startPoint.x;
       incompleteCircles.view.y = startPoint.y;
       zAnimator.mainContainer.add(incompleteCircles);
 
-      oppositeRowsRotator = zAnimator.compositions.arcStuff.circleRowOppositeRotator({speed: 10, circleRows: incompleteCircles.circleRows});
+      oppositeRowsRotator = zAnimator.compositions.arcStuff.circleRowOppositeRotator({speed: 240, circleRows: incompleteCircles.circleRows});
       oppositeRowsRotator.start();
     },
     stop: function (){

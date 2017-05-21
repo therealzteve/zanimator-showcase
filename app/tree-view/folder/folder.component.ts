@@ -15,6 +15,8 @@ export class FolderComponent implements OnInit {
   @Input()
   public searchword;
 
+  public canvasData;
+
   constructor(private stateService: StateService,  private router: Router){
 
   }
@@ -22,6 +24,9 @@ export class FolderComponent implements OnInit {
 
 
   ngOnInit() {
+    this.stateService.onCanvasChange.subscribe((canvasData) => {
+      this.canvasData = canvasData;
+    });
   }
 
   public getVisibleExamples(){
@@ -46,6 +51,10 @@ export class FolderComponent implements OnInit {
   }
 
   public selectExample(example){
-    this.router.navigate(['/app', example.folder.join() + ',' + example.name]);
+    var routeArray = ['/app', example.folder.join() + ',' + example.name];
+    if(this.canvasData){
+      routeArray.push(this.canvasData);
+    }
+    this.router.navigate(routeArray);
   }
 }
