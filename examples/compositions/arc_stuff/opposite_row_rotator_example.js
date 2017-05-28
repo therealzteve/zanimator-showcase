@@ -5,11 +5,14 @@ exports.create = function(zAnimator){
 
   var incompleteCircles;
   var oppositeRowsRotator;
+  var radiusFader;
+  var centralizer;
 
   var example = {
     name: 'opposite row rotator',
     controls: [
-      {'name': 'Start point',
+      {
+       'name': 'Start point',
        'type': 'coordinates',
        'ref': startPoint
      },
@@ -24,17 +27,37 @@ exports.create = function(zAnimator){
       incompleteCircles = zAnimator.compositions.arcStuff.incompleteCircles({rows: rows.value, radius: 100, minDegrees: 25, maxDegrees: 180});
       incompleteCircles.view.x = startPoint.x;
       incompleteCircles.view.y = startPoint.y;
-      zAnimator.mainContainer.add(incompleteCircles);
 
       oppositeRowsRotator = zAnimator.compositions.arcStuff.circleRowOppositeRotator({speed: 240, circleRows: incompleteCircles.circleRows});
+
+      var radiusInterval = zAnimator.interval({type: 'ms', ms: 1000});
+      radiusFader = zAnimator.compositions.arcStuff.circleRowRadiusFader({interval:radiusInterval, maxRadius: 200, circleRows: incompleteCircles});
+
+      centralizer = zAnimator.filters.mover.center.centralizer({child: incompleteCircles, width: 0, height: 0});
+
+
+      incompleteCircles.start();
       oppositeRowsRotator.start();
+      radiusFader.start();
+      centralizer.start();
+
+      zAnimator.mainContainer.add(centralizer);
+
+
     },
     stop: function (){
       if(oppositeRowsRotator){
         oppositeRowsRotator.stop();
       }
       if(incompleteCircles){
-        zAnimator.mainContainer.remove(incompleteCircles);
+        incompleteCircles.stop();
+      }
+      if(radiusFader){
+        radiusFader.stop();
+      }
+      if(centralizer){
+        centralizer.stop();
+        zAnimator.mainContainer.remove(centralizer);
       }
     }
   };
