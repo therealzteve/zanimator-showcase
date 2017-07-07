@@ -19,15 +19,16 @@ exports.create = function(zAnimator){
      }
     ],
     run: function(){
-
       incompleteCircles = zAnimator.compositions.arcStuff.incompleteCircles({rows: rows.value, radius: 100, minDegrees: 0, maxDegrees: 20});
       incompleteCircles.view.x = startPoint.x;
       incompleteCircles.view.y = startPoint.y;
       zAnimator.mainContainer.add(incompleteCircles);
+      incompleteCircles.start();
     },
     stop: function (){
       if(incompleteCircles){
         zAnimator.mainContainer.remove(incompleteCircles);
+        incompleteCircles.stop();
       }
     }
   };
