@@ -6,12 +6,12 @@ exports.create = function(zAnimator){
   var soundBars = [];
 
   for(var i = 0; i < 10; i++){
-    var sb = zAnimator.compositions.soundBars.multiRectsSoundBar({width: 10, rectHeight: 10, spacing: 10, amountRects: 15});
+    var sb = zAnimator.compositions.soundBars.lightSoundBar({width: 10, height: 50});
     soundBars.push(sb);
   }
 
   var example = {
-    name: 'multi rects sound bars example',
+    name: 'light sound bars example',
     controls: [
       {'name': 'Start point',
        'type': 'coordinates',
