@@ -3,7 +3,7 @@ exports.create = function(zAnimator){
 
   var startPoint = { 'x': 0, 'y': 0 };
 
-  var elecLine = zAnimator.compositions.electricity.elecLine({start: { 'x': 0, 'y': 0 }, end: {'x': 300, 'y': 0}, amountPoints: 5, radius: 25});
+  var elecLine = zAnimator.compositions.electricity.elecLine({start: { 'x': 0, 'y': 0 }, end: {'x': 600, 'y': 0}, amountPoints: 100, radius: 300});
 
 
   var example = {
